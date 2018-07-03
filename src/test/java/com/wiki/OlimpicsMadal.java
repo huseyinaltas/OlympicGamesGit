@@ -42,17 +42,12 @@ public class OlimpicsMadal {
 	@Test(priority = 1)
 	public void sortTest() {
 
-		List<WebElement> ranks = driver.findElements(
-				By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/td[1]"));
+		List<WebElement> ranks = driver.findElements(By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/td[1]"));
 		ranks.remove(ranks.size() - 1);
 		matchingRank(ranks, "Yes"); // Call Method
 		System.out.println("NAME IS MATCHING?");
-		driver.findElement(
-				By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/thead/tr/th[2]"))
-				.click();
-		;
-		List<WebElement> names = driver.findElements(
-				By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/th[1]/a"));
+		driver.findElement(By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/thead/tr/th[2]")).click();
+		List<WebElement> names = driver.findElements(By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/th[1]/a"));
 		Set<String> namesOrder = new TreeSet<>();
 		for (int i = 0; i < names.size(); i++) {
 			namesOrder.add(names.get(i).getText());
@@ -68,8 +63,7 @@ public class OlimpicsMadal {
 			count++;
 			Assert.assertEquals(actual, expected);
 		}
-		List<WebElement> ranks2 = driver.findElements(
-				By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/td[1]"));
+		List<WebElement> ranks2 = driver.findElements(By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/td[1]"));
 		matchingRank(ranks2, "No");
 	}
 
@@ -85,12 +79,9 @@ public class OlimpicsMadal {
 	@Test(priority = 3)
 	public void silver_18() throws InterruptedException {
 		String name = "";
-		Thread.sleep(1000);
 		mostSilver();
 		System.out.println("SILVER MADALS COUNTRIES ");
-		Thread.sleep(1000);
 		System.out.println("SILVERS MADALS: " + silvers);
-		Thread.sleep(1000);
 		System.out.println("18 SILVER MADALS COUNTRIES ");
 		for (Entry<String, Integer> eachEntry : list.entrySet()) {
 			Thread.sleep(1000);
@@ -152,10 +143,8 @@ public class OlimpicsMadal {
 	public String mostBronze() {
 		String name = null;
 		Integer k = 0;
-		List<WebElement> number = driver.findElements(
-				By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/td[4]"));
-		List<WebElement> country = driver.findElements(
-				By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/th/a"));
+		List<WebElement> number = driver.findElements(By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/td[4]"));
+		List<WebElement> country = driver.findElements(By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/th/a"));
 		Map<String, Integer> list = convertToMap(country, number);
 		Set<Integer> sort = new TreeSet<>(list.values());
 		int max = 0;
@@ -165,10 +154,8 @@ public class OlimpicsMadal {
 	public String mostMadals() {
 		String name = null;
 		Integer k = 0;
-		List<WebElement> number = driver.findElements(
-				By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/td[5]"));
-		List<WebElement> country = driver.findElements(
-				By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/th/a"));
+		List<WebElement> number = driver.findElements(By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/td[5]"));
+		List<WebElement> country = driver.findElements(By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/th/a"));
 		Map<String, Integer> list = convertToMap(country, number);
 		Set<Integer> sort = new TreeSet<>(list.values());
 		int max = 0;
@@ -224,11 +211,9 @@ public class OlimpicsMadal {
 		String name = null;
 		Integer k = 0;
 		Thread.sleep(1000);
-		List<WebElement> number = driver.findElements(
-				By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/td[3]"));
+		List<WebElement> number = driver.findElements(By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/td[3]"));
 		Thread.sleep(1000);
-		List<WebElement> country = driver.findElements(
-				By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/th/a"));
+		List<WebElement> country = driver.findElements(By.xpath("//table[@class='wikitable sortable plainrowheaders jquery-tablesorter']/tbody/tr/th/a"));
 		Map<String, Integer> list = convertToMap(country, number);
 		Set<Entry<String, Integer>> eachEntry = list.entrySet();
 		for (Entry<String, Integer> entry : eachEntry) {
